@@ -1,6 +1,6 @@
 # Check the English version <a href="README.md">here</a>
 
-## Eleicoes2022
+## Eleições2022
 
 Um app feito em Flutter pra acompanhar a apuração dos votos do segundo turno das eleições de 2022 usando a API do 
 <a href="https://www.tse.jus.br/eleicoes/eleicoes-2022/divulgacao-dos-resultados-das-eleicoes-2022">TSE</a>.
