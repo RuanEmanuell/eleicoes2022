@@ -16,6 +16,7 @@ para a pasta do seu projeto do Flutter.
 ### Aqui estão algumas imagens do projeto rodando:
 
 ![eleicoes2022](https://user-images.githubusercontent.com/113607857/198875899-a0fd2b61-234c-427d-bcc7-144bc9b3900b.gif)
+![Screenshot_546](https://user-images.githubusercontent.com/113607857/198908598-805f0f69-17a3-4c73-bc52-3657cf4e9ccb.png)
 
 
 ## Este projeto foi feito apenas por próposito de estudos!
