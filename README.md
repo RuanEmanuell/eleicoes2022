@@ -14,5 +14,6 @@ You will need <a href="https://docs.flutter.dev/get-started/install">Flutter</a>
 ### Here are some images of the project running:
 
 ![eleicoes2022](https://user-images.githubusercontent.com/113607857/198875889-bf3c53be-acfb-4d07-9b2c-1c01a4ce3dd7.gif)
+![Screenshot_545](https://user-images.githubusercontent.com/113607857/198908586-f9951980-e01e-427c-970f-e0687bc85dde.png)
 
 ### This project was made only for proposes of study!
