@@ -13,7 +13,7 @@ class SmartphoneWidget extends StatelessWidget {
     var screenWidth = MediaQuery.of(context).size.width;
 
     return Consumer<Controller>(builder: (context, value, child) {
-      percentage = value.json != null ? double.parse("0.${value.json["pvp"].substring(0, 1)}") : 0;
+      percentage = value.json != null ? double.parse("0.${value.json["pvnom"].substring(0, 1)}") : 0;
 
       return value.loading
           ? const Center(child: CircularProgressIndicator())
@@ -21,19 +21,19 @@ class SmartphoneWidget extends StatelessWidget {
               child: Column(
                 children: [
                   SafeArea(
-                      child: Text("Porcentagem das urnas apuradas: ${value.json["pvp"]}%",
+                      child: Text("Porcentagem das urnas apuradas: ${value.json["pvnom"]}%",
                           style: GoogleFonts.robotoMono())),
                   Container(
                     alignment: Alignment.topLeft,
                     child: AnimatedContainer(
                       color: Colors.blue,
                       height: screenHeight / 30,
-                      width: screenWidth / 10 * (percentage * 10),
+                      width: screenWidth * percentage * 10,
                       duration: const Duration(seconds: 2),
                     ),
                   ),
                   SizedBox(
-                    height: screenHeight / 1.1,
+                    height: screenHeight/1.1,
                     child: ListView.builder(
                       itemCount: value.json["cand"].length,
                       itemBuilder: (BuildContext context, int index) {
@@ -43,6 +43,7 @@ class SmartphoneWidget extends StatelessWidget {
                                 margin: EdgeInsets.only(
                                     left: screenWidth / 25,
                                     right: screenWidth / 25,
+                                    top:screenHeight/20,
                                     bottom: screenHeight / 20),
                                 width: screenWidth,
                                 height: screenHeight / 2,
@@ -53,7 +54,7 @@ class SmartphoneWidget extends StatelessWidget {
                                   children: [
                                     Container(
                                         margin: EdgeInsets.only(
-                                            top: screenHeight / 25, bottom: screenHeight / 25),
+                                            top: screenHeight / 20, bottom: screenHeight / 25),
                                         width: screenWidth / 2.5,
                                         decoration: BoxDecoration(
                                           color: value.json["cand"][index]["nm"] == "LULA"
@@ -71,7 +72,7 @@ class SmartphoneWidget extends StatelessWidget {
                                         Text(value.json["cand"][index]["nm"],
                                             style: GoogleFonts.roboto(
                                                 fontWeight: FontWeight.bold,
-                                                fontSize: 23,
+                                                fontSize: screenHeight / 30,
                                                 color: value.json["cand"][index]["nm"] == "LULA"
                                                     ? Colors.red
                                                     : Colors.green)),
@@ -79,21 +80,22 @@ class SmartphoneWidget extends StatelessWidget {
                                         Text(value.json["cand"][index]["n"],
                                             style: GoogleFonts.roboto(
                                                 fontWeight: FontWeight.bold,
-                                                fontSize: 23,
+                                                fontSize: screenHeight / 30,
                                                 color: value.json["cand"][index]["nm"] == "LULA"
                                                     ? Colors.red
                                                     : Colors.green)),
                                       ],
                                     ),
+                                    const SizedBox(height: 10),
                                     Text("${value.json["cand"][index]["pvap"]}%",
                                         style: GoogleFonts.robotoMono(
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 20,
+                                          fontSize: screenHeight / 35,
                                         )),
                                     Text("${value.json["cand"][index]["vap"]} votos",
                                         style: GoogleFonts.robotoMono(
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 20,
+                                          fontSize: screenHeight / 35,
                                         )),
                                   ],
                                 )),

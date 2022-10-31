@@ -7,13 +7,14 @@ import '../controller/controller.dart';
 class DesktopWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    num percentage;
+
+    var percentage;
 
     var screenHeight = MediaQuery.of(context).size.height;
     var screenWidth = MediaQuery.of(context).size.width;
 
     return Consumer<Controller>(builder: (context, value, child) {
-      percentage = value.json != null ? double.parse("0.${value.json["pvp"].substring(0, 1)}") : 0;
+      percentage = value.json != null ? double.parse("0.${value.json["pvnom"].substring(0, 1)}") : 0;
 
       return value.loading
           ? const Center(child: CircularProgressIndicator())
@@ -21,14 +22,14 @@ class DesktopWidget extends StatelessWidget {
               child: Column(
                 children: [
                   SafeArea(
-                      child: Text("Porcentagem das urnas apuradas: ${value.json["pvp"]}%",
+                      child: Text("Porcentagem das urnas apuradas: ${value.json["pvnom"]}%",
                           style: GoogleFonts.robotoMono())),
                   Container(
                     alignment: Alignment.topLeft,
                     child: AnimatedContainer(
                       color: Colors.blue,
                       height: screenHeight / 30,
-                      width: screenWidth / 10 * (percentage * 10),
+                      width: screenWidth * percentage * 10,
                       duration: const Duration(seconds: 2),
                     ),
                   ),
